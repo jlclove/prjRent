@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="HousePicture">
+	<insert id="batchInsert" parameterType="list">
+		insert into T_HousePicture (messageId,pictureUrl,remark,sequence)
+		values 
+		<foreach collection="list" index="index" item="item" separator=",">
+			(#{item.messageId},#{item.pictureUrl},#{item.remark},#{item.sequence})
+		</foreach>
+	</insert>
+	
+	<select id="findPictureList" resultType="housePicture">
+		select * from T_HousePicture where messageId = #{id}
+		order by sequence asc
+	</select>
+</mapper>

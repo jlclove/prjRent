@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<description>DY JSTL 1.0 functions library</description>
+	<display-name>DY JSTL functions</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>dyonline</short-name>
+	<uri>http://www.jiaogeiwo.com/tags/app</uri>
+	<tag>
+		<name>PhotoFullPath</name>
+		<tag-class>com.dyrent.tag.PhotoPathTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>图片路径url</description>
+			<name>url</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>图片尺寸大小</description>
+			<name>size</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

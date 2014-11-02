@@ -1,0 +1,109 @@
+.logo {
+	height: 350px;
+	background-image: url(../images/about-bg.jpg);
+	background-size: cover;
+	background-position: center center;
+}
+.pannel {
+	padding-left: 250px;
+	padding-right: 30px;
+}
+.nav li .fa {
+	visibility: hidden;
+}
+.nav .active .fa {
+	visibility: visible;
+}
+.nav > li > a {
+	color: #999;
+}
+.nav .active a {
+	color: #333;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+	text-decoration: none;
+	background-color: initial;
+}
+.detail {
+	padding-bottom: 10px;
+}
+.detail p {
+	line-height: 1.8;
+	color: #666;
+}
+.detail h4 {
+	margin: 20px 0;
+}
+.event {
+	padding-left: 30px;
+	position: relative;
+}
+.event:after {
+	content: " ";
+	position: absolute;
+	height: 100%;
+	width: 2px;
+	background: rgb(221,221,221);
+	left: 3px;
+	top: 5px;
+	margin-top: 14px;
+}
+.event:before {
+	content: " ";
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	border-radius: 5px;
+	left: 0;
+	top: 5px;
+	background: rgb(252,163,163);
+}
+.event:last-child:after {
+	height: 0;
+}
+.btn-more {
+	border-radius: 5px;
+	height: 40px;
+	border: solid 1px #ccc;
+	line-height: 40px;
+}
+.btn-more:hover {
+	cursor: pointer;
+	background: #666;
+	color: #fff;
+}
+.more:after {
+	width: 0;
+}
+.welfare {
+	margin: 30px 0;
+}
+.welfare img {
+	width: 200px;
+	float: left;
+	margin-right: 30px;
+}
+.welfare .content h4 {
+	margin-top: 0;
+}
+.contact {
+	margin-bottom: 80px;
+}
+.contact span {
+	display: inline-block;
+	margin-right: 30px;
+	margin-top: 15px;
+}
+.map-container {
+	overflow: hidden;
+	border: solid 1px #ccc;
+}
+.content {
+	max-width: 960px;
+	margin: 0 auto;
+}
+#category {
+	width: 200px;
+	float: left;
+}

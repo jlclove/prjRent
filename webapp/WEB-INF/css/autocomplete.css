@@ -1,0 +1,27 @@
+.prompt-content li {
+	padding: 0 10px;
+	line-height: 32px;
+	font-weight: normal;
+}
+.prompt-content li[data-value].active,
+.prompt-content li[data-value]:active,
+.prompt-content li[data-value]:hover {
+	background-color: #ebebeb;
+}
+.prompt-content .count {
+	float: right;
+	color: #999;
+}
+.prompt-content {
+	list-style: none;
+	border: 1px solid rgb(221, 221, 221);
+	padding: 0px;
+	margin: 1px 0px 0px;
+	position: absolute;
+	z-index: 1000;
+	width: 100%;
+	display: none;
+	background: rgb(255, 255, 255);
+	left: 0;
+	top: 100%;
+}

@@ -1,0 +1,110 @@
+.share-main {
+	font-size: 12px;
+}
+.share-main .btn {
+	font-size: 12px;
+}
+.field {
+	padding: 10px;
+}
+.field .content {
+	padding-left: 97px;
+}
+.field .title {
+	float: left;
+	text-align: right;
+	width: 74px;
+	height: 31px;
+	line-height: 31px;
+}
+.divider {
+	border-top: 1px solid #ddd;
+}
+.field a.thumbnail {
+	border-width: 4px;
+	border-radius: 4px;
+	text-decoration: none;
+	position: relative;
+	border-color: #ccc;
+}
+.field a.thumbnail.active {
+	border-color: rgb(141,187,66)!important;
+	overflow: hidden;
+}
+.field a.thumbnail:hover {
+	border-color: #ddd;
+}
+.field input {
+	height: auto;
+	font-size: 12px;
+	border-radius: 0;
+}
+.house-info .table {
+	margin-bottom: 0;
+}
+.house-info .table td {
+	border-top: 0;
+	padding: 0 25px 13px 0;
+}
+.house-info .table tr td:first-child {
+	color: #999;
+}
+.house-info .table tr td strong{
+	color: #333
+}
+.house-info .property {
+	float: left;
+	margin-right: 20px;
+}
+.house-info li.property {
+    width: 50%;
+    padding: 6px 0;
+}
+.house-info li.property .name {
+    width: 80px;
+    display: inline-block;
+    padding-right: 8px;
+    color: #888;
+    float: left;
+    text-align: right;
+}
+.house-info li.property .value {
+    color: #333;
+    display: block;
+    padding-left: 80px;
+}
+
+.boxWrapBlue {
+	padding: 0 30px;
+	border: 1px solid #d5dee7;
+	background: #ecf3fb;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 4px -2px rgba(0, 0, 0, 0.4);
+	box-shadow: 0 1px 4px -2px rgba(0, 0, 0, 0.4);
+}
+.red {
+	color: red;
+}
+.field a.thumbnail.active .glyphicon-ok {
+	display: inline-block;
+}
+.field a.thumbnail .glyphicon-ok {
+	position: absolute;
+	right: 11px;
+	top: initial;
+	bottom: 10px;
+	width: 22px;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	background-color: rgb(141,187,66);
+	border-radius: 11px;
+	color: #fff;
+	display: none;
+}
+
+#sortable .thumbnail > img,
+#sortable .thumbnail a > img {
+  height: 96px;
+}

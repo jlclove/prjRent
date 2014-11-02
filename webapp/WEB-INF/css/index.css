@@ -1,0 +1,339 @@
+.main-top {
+    height: 500px;
+    background: url('../images/main-bg.jpg') no-repeat center bottom;;
+    background-size: cover;
+    display: table;
+    width: 100%;
+}
+
+.main-top .form {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.main-top .form > .center-block {
+    text-align: center;
+}
+
+.main-top .title {
+    margin-bottom: 50px;
+    width: 630px;
+}
+.main-top .biglogo {
+    display: inline-block;
+    padding-right: 27px;
+    line-height: 0;
+    height: 60px;
+}
+.main-top .biglogo img {
+    width: 124px;
+}
+.am-ltc {
+    -webkit-animation: am-ltc .8s;
+    -moz-animation: am-ltc .8s;
+    -o-animation: am-ltc .8s;
+    -ms-animation: am-ltc .8s;
+    animation: am-ltc .8s;
+}
+.am-rtc {
+    -webkit-animation: am-rtc .8s .2s;
+    -moz-animation: am-rtc .8s .2s;
+    -o-animation: am-rtc .8s .2s;
+    -ms-animation: am-rtc .8s .2s;
+    animation: am-rtc .8s .2s;
+}
+
+.main-bottom {
+    padding: 50px 0 0px;
+}
+
+@media screen and (min-width: 768px) {
+    .main-top .modal-dialog {
+        margin: 130px auto;
+    }
+}
+
+.search-input input,
+.search-input button {
+    height: 40px;
+}
+
+.search-input button {
+    background-color: rgb(55, 55, 55);
+    color: #fff;
+    width: 90px;
+}
+
+.search-input button:hover {
+    background-color: rgb(85, 85, 85);
+    color: #fff;
+}
+
+.search {
+    display: inline-block;
+    width: 300px;
+    height: 35px;
+    padding: 2px 10px;
+    vertical-align: middle;
+}
+
+.search-btn {
+    background-color: rgba(16, 212, 44, 1);
+}
+
+.search-box {
+    width: 500px;
+    margin-right: 40px;
+    padding: 15px 20px;
+    background-color: #fff;
+    border-radius: 7px;
+    box-shadow: 0 0 4px rgba(0,0,0,.15);
+}
+
+.district-list li {
+    float: left;
+    display: inline-flex;
+}
+
+.district-list li > a {
+    text-align: center;
+    background-color: rgb(102, 97, 94);
+    padding: 2px 10px 4px;
+    margin-right: 5px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #eee;
+}
+
+.district-list li > a:hover {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.desc-wrap {
+    font-size: 14px;
+    width: 258px;
+    float: left;
+    margin: 30px;
+}
+
+.desc-wrap img {
+    width: 100px;
+}
+
+.video {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: solid 2px #555;
+    width: 208px;
+}
+
+.video img {
+    width: 204px;
+    height: 114px;
+}
+
+#myModal .modal-header {
+    border: 0;
+    padding: 5px;
+}
+#myModal .modal-body {
+    padding: 8px 14px 14px;
+}
+
+.video:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.video:before {
+    content: "了解德佑：";
+    position: absolute;
+    font-weight: bold;
+    top: -25px;
+    left: 0;
+}
+
+.btn-service.active {
+    box-shadow: none;
+    color: #fff;
+    background-color: #777;
+}
+
+.btn-service:not(.active):hover {
+    color: #666;
+    background-color: #eee;
+}
+
+.btn-service:active {
+    box-shadow: none;
+}
+
+.btn-service {
+    width: 160px;
+    border-color: #ddd;
+    padding: 13px;
+    color: #666;
+    font-weight: bold;
+    background-color: #fff;
+}
+
+.service-content {
+    margin-top: 50px;
+    height: 480px;
+    position: relative;
+    overflow: hidden;
+}
+.service-content .content-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: all .7s ease;
+    -moz-transition: all .7s ease;
+    -o-transition: all .7s ease;
+    -ms-transition: all .7s ease;
+    transition: all .7s ease;
+}
+.service-content .content-box.active {
+    opacity: 1;
+}
+.service-content .content-box.right {
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+    display: none;
+}
+.service-content .content-box.left {
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    display: none;
+}
+
+.service-content p {
+    color: #888;
+    text-align: left;
+    line-height: 1.8;
+    font-size: 13px;
+}
+
+.reason {
+    background: url(../images/bg-reason.jpg);
+    background-size: cover;
+    padding: 40px 0 50px;
+}
+
+.reason-content {
+    margin-top: 30px;
+    width: 700px;
+    text-align: left;
+}
+
+.reason-content p {
+    color: #666;
+}
+
+.reason-content strong {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.reason-content p {
+    font-size: 13px;
+}
+
+/*动画类*/
+@-webkit-keyframes am-ltc {
+    from {
+        -webkit-transform: translateX(-350px);
+        opacity: 0;
+    }
+    to {
+        -webkit-transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes am-ltc {
+    from {
+        -moz-transform: translateX(-350px);
+        opacity: 0;
+    }
+    to {
+        -moz-transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@-o-keyframes am-ltc {
+    from {
+        -o-transform: translateX(-350px);
+        opacity: 0;
+    }
+    to {
+        -o-transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes am-ltc {
+    from {
+        transform: translateX(-350px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes am-rtc {
+    from {
+        -webkit-transform: translateX(350px);
+        opacity: 0;
+    }
+    to {
+        -webkit-transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes am-rtc {
+    from {
+        -moz-transform: translateX(350px);
+        opacity: 0;
+    }
+    to {
+        -moz-transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@-o-keyframes am-rtc {
+    from {
+        -o-transform: translateX(350px);
+        opacity: 0;
+    }
+    to {
+        -o-transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes am-rtc {
+    from {
+        transform: translateX(350px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,71 @@
+{{if showHeader}}
+<div class="clearfix">
+    <div class="statics pull-left"><span id="saleCount" class="green">${count}</span>&nbsp;个房源</div>
+    <div class="list-style pull-right">
+        <span class="mg_r10 sm">排序：</span>
+        <div class="btn-group mg_r10">
+            <button type="button" class="{{if !priceSort && !acreageSort}}active{{/if}} btn btn-sm btn-default js_sort_default">默认</button>
+            <button type="button" class="{{if priceSort}}active{{/if}} btn btn-sm btn-default js_sort_price" data-sort="price" data-value="0">价格
+                {{if priceSort == 'asc'}}
+                <span  class="glyphicon glyphicon-arrow-up"></span>
+                {{else}}
+                    {{if priceSort == 'desc'}}
+                    <span  class="glyphicon glyphicon-arrow-down"></span>
+                    {{else}}
+                    <span  class="glyphicon glyphicon-arrow-up"></span>
+                    {{/if}}
+                {{/if}}
+            </button>
+            <button type="button" class="{{if acreageSort}}active{{/if}} btn btn-sm btn-default js_sort_acreage" data-sort="acreage" data-value="1">面积
+                {{if acreageSort == 'asc'}}
+                <span  class="glyphicon glyphicon-arrow-up"></span>
+                {{else}}
+                    {{if acreageSort == 'desc'}}
+                    <span  class="glyphicon glyphicon-arrow-down"></span>
+                    {{else}}
+                    <span  class="glyphicon glyphicon-arrow-down"></span>
+                    {{/if}}
+                {{/if}}
+            </button>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="active btn btn-sm btn-default js_list"><span  class="glyphicon glyphicon-th-list"></span ></button>
+            <button type="button" class="btn btn-sm btn-default js_list_large"><span  class="glyphicon glyphicon-th-large"></span ></button>
+        </div>
+    </div>
+</div>
+<ul class="list-unstyled clearfix" id="house-list">
+{{/if}}
+	{{each(i, house) data}}
+	<li class="house-wrap" href="/ershoufang/s${house.houseNo}">
+	    <a href="/ershoufang/s${house.houseNo}" class="clearfix" target="_blank">
+            <div class="item clearfix">
+                <img class="lazy pull-left" data-original="${house.mainPhotoUrl}" src="/static/images/loading160_120.gif">
+                <div class="gray caption mg_l20 pull-left">
+                    <h4 class="blue title">
+                        ${house.propertyName},
+                        {{if house.acreage > 0}}${house.acreage}平米,{{/if}}
+                        {{if house.decoration != null}}${house.decoration},{{/if}}
+                        {{if house.room > 0}}${house.room}室{{/if}}
+                    </h4>
+                    <p class="gray content">
+                        ${house.floorPosition } / ${house.totalFloor } 层, 朝${house.face}<br>
+                        建于 ${getYear(house.constructionYear)} 年<br>
+                        ${districtName} / ${plateName}<span class="mg_l30">${house.propertyAddress}</span>
+                    </p>
+                </div>
+                <div class="pull-right green price">
+                    <strong>
+                        {{if house.sellPrice <= 0}}
+                        价格待定
+                        {{else}}${house.sellPrice}万
+                        {{/if}}
+                    </strong>
+                </div>
+            </div>
+	    </a>
+	</li>
+	{{/each}}
+{{if showHeader}}
+</ul>
+{{/if}}

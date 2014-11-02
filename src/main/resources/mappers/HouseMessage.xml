@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="HouseMessage">
+	<select id="findById" resultType="houseMessage">
+		select * from V_HouseMessage where id = #{id} and status = 1
+		
+	</select>
+	
+	<select id="queryForSimilars" resultType="houseMessage">
+		select * from V_HouseMessage where id != #{id} and status = 1 
+		and creator is not null
+		order by id desc limit 5
+	</select>
+	
+	<insert id="insertMessage" parameterType="houseMessage">
+		insert into T_HouseMessage (houseCode,price,mobilePhone,userName,title,attachName)
+		values (#{houseCode},#{price},#{mobilePhone},#{userName},#{title},#{attachName})
+		<selectKey resultType="int"  order="AFTER" keyProperty="id" >
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+	</insert>
+	
+	
+	<select id="getListPage" parameterType="houseMessage" resultType="houseMessage">
+		select *
+		from V_HouseMessage
+		where status = 1 and creator is not null
+		order by id desc
+		limit #{startRow},#{pageSize}
+	</select>
+
+	<select id="queryTotalCount" parameterType="houseMessage" resultType="integer">
+		select count(*)
+		from V_HouseMessage   
+		where status = 1 and creator is not null
+	</select>
+</mapper>

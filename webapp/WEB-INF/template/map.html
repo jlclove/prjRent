@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+body {margin: 0;}
+.map {height: 429px;}
+@media screen and (max-width: 768px) {
+	.map {height: 229px;}
+}
+</style>
+</head>
+<body>
+<div id="map" class="map"></div>
+</body>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=vIjCLlrC5q4uENN81T4Ln5XS"></script>
+<script type="text/javascript" src="/static/js/deyou-baiduMapDetail.js"></script>
+<script type="text/javascript">
+function initMap(){
+	var map = createMap('map',top.latitude,top.longitude,16);
+	var opts = {type: BMAP_NAVIGATION_CONTROL_ZOOM};
+	map.addControl(new BMap.NavigationControl(opts));
+	map.addControl(new BMap.ScaleControl());
+	map.addControl(new BMap.OverviewMapControl());
+}
+</script>
+</html>

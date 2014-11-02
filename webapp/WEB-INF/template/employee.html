@@ -1,0 +1,24 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal"
+		aria-hidden="true">&times;</button>
+	<h4 class="modal-title">${length} 位经纪人对此房很了解</h4>
+</div>
+<div class="modal-body clearfix">
+	{{each(i, employee) list}}
+		<div class="agent-wrap clearfix">
+			<div class="pull-left mg_r10">
+				<img src="${employee.photoUrl}"/>
+			</div>
+			<div class="agent-info">
+				<h4 class="ellipsis" title="${employee.userName}">${employee.userName}</h4>
+				<p class="ellipsis" title="${employee.ability}">
+					<small class="gray">${employee.ability}</small>
+				</p>
+				<button type="button" class="btn btn-success">
+					<span class="glyphicon glyphicon-earphone"></span><span
+						class="mg_l10">${employee.mobilePhone}</span>
+				</button>
+			</div>
+		</div>
+	{{/each}}
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html {
+            overflow: hidden;
+            background-color: #fff;;
+        }
+        body {
+            margin: 0;;
+        }
+        #panorama {
+            text-align: center;
+            width: 100%;
+            height: 340px;
+        }
+        #panorama span {
+            display: inline-block;
+            margin-top: 160px;
+        }
+    </style>
+</head>
+<body>
+<div id="panorama"></div>
+</body>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=vIjCLlrC5q4uENN81T4Ln5XS"></script>
+<script type="text/javascript">
+function initMap(){
+    var panoramaService = new BMap.PanoramaService();
+    panoramaService.getPanoramaByLocation(new BMap.Point(top.latitude,top.longitude), function(data){
+        var panoramaInfo="";
+        if (data != null) {
+            var panorama = new BMap.Panorama('panorama');
+            panorama.setPosition(new BMap.Point(top.latitude,top.longitude));
+            panorama.setPov({heading: -40, pitch: 6});
+        }else{
+            document.getElementById('panorama').innerHTML = '<span>对不起，此房源暂无街景数据。</span>';
+        }
+    });
+}
+</script>
+</html>
