@@ -62,17 +62,35 @@ public class HouseMessageService extends BaseService<HouseMessage> {
 		}
 
 	}
-	
+
+	/**
+	 * 插入立即看详情
+	 * 
+	 * @param houseMessage
+	 * @return
+	 */
+	@Transactional
+	public void editMessage(HouseMessage houseMessage) {
+		this.update("updateMessage", houseMessage);
+		housePictureService.deleteByMessageId(houseMessage.getId());
+		for (HousePicture housePicture : houseMessage.getHousePictureList()) {
+			housePicture.setMessageId(houseMessage.getId());
+		}
+		housePictureService.insertBatchPicture(houseMessage
+				.getHousePictureList());
+	}
+
 	/**
 	 * 获得分页结果集
+	 * 
 	 * @param page
 	 * @return
 	 */
-	public List<HouseMessage> getListPage(Page page){
+	public List<HouseMessage> getListPage(Page page) {
 		return this.selectByPage("getListPage", page);
 	}
-	
-	public int getListCount(Page page){
+
+	public int getListCount(Page page) {
 		return this.count("queryTotalCount", page);
 	}
 }

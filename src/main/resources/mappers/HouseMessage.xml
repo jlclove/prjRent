@@ -34,4 +34,16 @@
 		from V_HouseMessage   
 		where status = 1 and creator is not null
 	</select>
+	
+	
+	<insert id="updateMessage" parameterType="houseMessage">
+		update T_HouseMessage 
+		set price = #{price},
+			mobilePhone = #{mobilePhone},
+			userName = #{userName},
+			title = #{title},
+			attachName = #{attachName}
+		where id = #{id}
+	</insert>
+	
 </mapper>

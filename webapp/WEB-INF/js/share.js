@@ -55,12 +55,13 @@ require([ 'jquery', 'jqueryui' ], function($) {
 					'userName': $('#name').val(),
 					'mobilePhone': $('#phone').val(),
 					'price': $('#price').val(),
-					'title':$('#title').val()
+					'title':$('#title').val(),
+					'attachName':$('[name=attachName]').val()
 				});
 				console.log(formData);
 				$.ajax({
 					type: 'post',
-					url: '/share/submit',
+					url: '/share/submit'+($('[name=password]').val()==''?'':'/'+$('[name=password]').val()),
 					data: formData,
 					success: function(response){
 						$("#resultDiv").fadeIn(500);
@@ -143,3 +144,20 @@ require([ 'jquery', 'jqueryui' ], function($) {
 		}
 	});
 });
+
+function addPic(fileName){
+	var html = '<div class="col-md-3">\
+					<a href="#" class="thumbnail active"> <img\
+					src="/static/imgs/'+fileName+'"\
+					realsrc="'+fileName+'">\
+					<div class="caption" data-remark=""></div>\
+					<span class="glyphicon glyphicon-ok"></span>\
+				</a>\
+			</div>';
+	$('#sortable').append(html);
+	$('#photoCount').html(parseInt($('#photoCount').html())+1);
+}
+
+function addRar(fileName){
+	$('[name=attachName]').val(fileName);
+}

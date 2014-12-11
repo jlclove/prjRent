@@ -50,14 +50,42 @@ public class RentController extends BaseController {
 		return "house/detail";
 	}
 
-	@RequestMapping("/share/{lijikanId}")
-	protected String share(@PathVariable int lijikanId, Model model) {
+	@RequestMapping(value = { "/share/{lijikanId}" })
+	protected String share(@PathVariable int lijikanId, Model model,
+			String password) {
+		set(lijikanId, model);
+		return "house/share";
+	}
+
+	@RequestMapping(value = { "/share/{lijikanId}/{password}" })
+	protected String edit(@PathVariable int lijikanId, Model model,
+			@PathVariable String password) {
+		if (!checkPassword(password)) {
+			model.addAttribute("msg", "密码错误");
+			return "error";
+		}
+
+		set(lijikanId, model);
+		model.addAttribute("password", password);
+		return "house/share";
+	}
+
+	@RequestMapping(value = { "/add/{password}" })
+	protected String add(Model model, @PathVariable String password) {
+		if (!checkPassword(password)) {
+			model.addAttribute("msg", "密码错误");
+			return "error";
+		}
+		model.addAttribute("password", password);
+		return "house/share";
+	}
+
+	private void set(int lijikanId, Model model) {
 		HouseMessage houseMessage = houseMessageService
 				.getHouseMessageById(lijikanId);
 		houseMessage.setHousePictureList(housePictureService
 				.getPictureListByLijikanId(lijikanId));
 		model.addAttribute("houseMessage", houseMessage);
-		return "house/share";
 	}
 
 	@RequestMapping("/share/done/{lijikanId}")
@@ -76,6 +104,17 @@ public class RentController extends BaseController {
 		int messageId = houseMessageService.insertMessage(houseMessage);
 		return messageId > 0 ? JsonResult.OK.put("messageId", messageId)
 				: JsonResult.FAIL;
+	}
+
+	@RequestMapping(value = "/share/submit/{password}", method = RequestMethod.POST)
+	@ResponseBody
+	protected JsonResult editSubmit(@ModelAttribute HouseMessage houseMessage,
+			@PathVariable String password) {
+		if (!checkPassword(password)) {
+			return JsonResult.FAIL.message("密码错误");
+		}
+		houseMessageService.editMessage(houseMessage);
+		return JsonResult.OK.put("messageId", houseMessage.getId());
 	}
 
 	@RequestMapping("/getPictureList/{propertyId}")
@@ -135,14 +174,14 @@ public class RentController extends BaseController {
 			e1.printStackTrace();
 		}
 	}
-	
+
 	@RequestMapping("/more")
-	protected String more(Model model,@ModelAttribute HouseMessage houseMessage) {
-		model.addAttribute("houseMessage",  houseMessage);
-		model.addAttribute("messageList",  houseMessageService
-				.getListPage(houseMessage));
-		model.addAttribute("totalCount",  houseMessageService
-				.getListCount(houseMessage));
+	protected String more(Model model, @ModelAttribute HouseMessage houseMessage) {
+		model.addAttribute("houseMessage", houseMessage);
+		model.addAttribute("messageList",
+				houseMessageService.getListPage(houseMessage));
+		model.addAttribute("totalCount",
+				houseMessageService.getListCount(houseMessage));
 		return "house/more";
 	}
 }

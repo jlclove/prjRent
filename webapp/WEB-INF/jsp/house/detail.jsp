@@ -12,7 +12,9 @@
 </jsp:include>
 <div class="detail-main">
 	<div class="detail-container container">
-		<h3>${houseMessage.title}</h3>
+		<h3>${houseMessage.title}
+		<a type="button" class="btn pull-right" style="padding:0;font-weight:bold;" data-toggle="modal" data-target="#myModal" onclick="$('#login').attr('tar','/add')" target="_blank">新增房源</a>
+		</h3>
 		<div class="mg_t20 row">
 			<div class="col-md-8 detail-wrap mg_b20">
 				<div class="box">
@@ -106,6 +108,12 @@
 				</div>
 				<div class="detail-side mg_b20  pull-left">
 					<div class="side-bar box">
+						<a type="button" class="btn btn-agent mg_t10"
+							data-toggle="modal" data-target="#myModal" target="_blank" onclick="$('#login').attr('tar','/share/${houseMessage.id }')">编辑信息</a>
+					</div>
+				</div>
+				<div class="detail-side mg_b20  pull-left">
+					<div class="side-bar box">
 						<div class="clearfix">
 							<span>其他类似房源</span>
 						</div>
@@ -139,35 +147,26 @@
 		</div>
 	</div>
 </div>
-<div class="modal fade" id="myModal">
-	<div style="display: table; width: 100%; height: 100%">
-		<div style="display: table-cell; vertical-align: middle"
-			data-dismiss="modal">
-			<div class="modal-dialog" id="agent-dialog">
-				<div class="modal-content text-left inline-block">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-hidden="true">&times;</button>
-						<h4 class="modal-title">联系经纪人</h4>
-					</div>
-					<div class="modal-body clearfix">
-						<div class="agent-info">
-							<h4 class="ellipsis" title="${houseMessage.userName }">${houseMessage.userName }</h4>
-							<p class="ellipsis" title="对此房的信息了解全面">
-								<small class="gray">此房业主</small>
-							</p>
-							<button type="button" class="btn btn-success"
-								style="width: 100%;">
-								<span class="glyphicon glyphicon-earphone"></span>
-					 			<a href="tel:${houseMessage.mobilePhone }" class="mg_l10" style="font-size:14px;color:#FFF;" >${houseMessage.mobilePhone }</a>
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">口令登录</h4>
+      </div>
+      <div class="modal-body">
+        <p class="ellipsis">
+			 <input type="password" class="form-control" id="inputPassword" placeholder="输入操作密码">
+		</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="login" tar="/share/${houseMessage.id }">登录</button>
+      </div>
+    </div>
+  </div>
 </div>
+
 <script type="text/javascript">
 	var latitude = '${houseMessage.latitude}';
 	var longitude = '${houseMessage.longitude}';

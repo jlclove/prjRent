@@ -6,7 +6,7 @@
     <jsp:param name="css" value="main,error"/>
 </jsp:include>
 <div class="text-center error-page">
-	<h3>房源不存在</h3>
+	<h3>${msg }</h3>
 </div>
 
 <jsp:include page="/WEB-INF/jsp/common/_foot.jsp">

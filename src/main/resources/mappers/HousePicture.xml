@@ -13,4 +13,8 @@
 		select * from T_HousePicture where messageId = #{id}
 		order by sequence asc
 	</select>
+	
+	<select id="deleteByMessageId">
+		delete from T_HousePicture where messageId = #{messageId}
+	</select>
 </mapper>

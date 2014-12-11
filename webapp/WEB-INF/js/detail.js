@@ -78,6 +78,16 @@ Galleria.ready(function(){
 			API.show(index);
 		}
 	});
+	
+	$('#login').on('click',function(e){
+		var pass = $('#inputPassword').val();
+		if(pass==''){
+			alert('请输入密码');
+		}else{
+			window.location.href=$(this).attr('tar')+'/'+pass;
+		}
+		
+	});
 });
 
 

@@ -68,4 +68,6 @@ public final class Contants {
  * 官网地址
  */
 	public static final String DOOIOO_WEBSITE="http://www.dooioo.com";
+	
+	public static String PASSWORD = "1762811971ksjqyaik";
 }
